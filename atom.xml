@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-14T08:27:58.928Z</updated>
+  <updated>2017-05-14T16:28:18.209Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>离散元软件学习常用网址</title>
+    <link href="http://yoursite.com/2017/05/15/DEM/%E7%A6%BB%E6%95%A3%E5%85%83%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    <id>http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/</id>
+    <published>2017-05-14T16:16:23.000Z</published>
+    <updated>2017-05-14T16:28:18.209Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="离散元开源软件学习常用学习网址"><a href="#离散元开源软件学习常用学习网址" class="headerlink" title="离散元开源软件学习常用学习网址"></a>离散元开源软件学习常用学习网址</h1><h2 id="1-Esys-Particle"><a href="#1-Esys-Particle" class="headerlink" title="1 Esys-Particle"></a>1 Esys-Particle</h2><p>相关链接：<br><a href="https://launchpad.net/" target="_blank" rel="external">https://launchpad.net/</a><br><a href="https://launchpad.net/esys-particle" target="_blank" rel="external">https://launchpad.net/esys-particle</a><br><a href="http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html" target="_blank" rel="external">http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html</a><br><a href="https://launchpad.net/esys-particle/+announcements" target="_blank" rel="external">https://launchpad.net/esys-particle/+announcements </a></p>
+<h2 id="2-yade"><a href="#2-yade" class="headerlink" title="2 yade"></a>2 yade</h2><p>相关链接</p>
+<p><a href="https://yade-dem.org/" target="_blank" rel="external">https://yade-dem.org/</a> </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ol>
+<li>yade的优势比paticle多：计算快，开发团队强大</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      离散元开源软件学习 初学者常用网址
+    
+    </summary>
+    
+      <category term="DEM" scheme="http://yoursite.com/categories/DEM/"/>
+    
+    
+      <category term="-DEM -常用网址" scheme="http://yoursite.com/tags/DEM-%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
