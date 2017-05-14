@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-14T08:27:58.928Z</updated>
+  <updated>2017-05-14T16:12:43.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>离散元常用软件</title>
+    <link href="http://yoursite.com/2017/05/15/%E7%A6%BB%E6%95%A3%E5%85%83%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/15/离散元常用软件/</id>
+    <published>2017-05-14T16:12:43.000Z</published>
+    <updated>2017-05-14T16:12:43.870Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
