@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-14T16:28:18.209Z</updated>
+  <updated>2017-05-14T16:32:34.743Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/05/15/DEM/%E7%A6%BB%E6%95%A3%E5%85%83%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     <id>http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/</id>
     <published>2017-05-14T16:16:23.000Z</published>
-    <updated>2017-05-14T16:28:18.209Z</updated>
+    <updated>2017-05-14T16:32:34.743Z</updated>
     
     <content type="html"><![CDATA[<h1 id="离散元开源软件学习常用学习网址"><a href="#离散元开源软件学习常用学习网址" class="headerlink" title="离散元开源软件学习常用学习网址"></a>离散元开源软件学习常用学习网址</h1><h2 id="1-Esys-Particle"><a href="#1-Esys-Particle" class="headerlink" title="1 Esys-Particle"></a>1 Esys-Particle</h2><p>相关链接：<br><a href="https://launchpad.net/" target="_blank" rel="external">https://launchpad.net/</a><br><a href="https://launchpad.net/esys-particle" target="_blank" rel="external">https://launchpad.net/esys-particle</a><br><a href="http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html" target="_blank" rel="external">http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html</a><br><a href="https://launchpad.net/esys-particle/+announcements" target="_blank" rel="external">https://launchpad.net/esys-particle/+announcements </a></p>
 <h2 id="2-yade"><a href="#2-yade" class="headerlink" title="2 yade"></a>2 yade</h2><p>相关链接</p>
@@ -39,7 +39,9 @@
       <category term="DEM" scheme="http://yoursite.com/categories/DEM/"/>
     
     
-      <category term="-DEM -常用网址" scheme="http://yoursite.com/tags/DEM-%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+      <category term="DEM" scheme="http://yoursite.com/tags/DEM/"/>
+    
+      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     
   </entry>
   
@@ -48,7 +50,7 @@
     <link href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     <id>http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/</id>
     <published>2017-05-14T16:15:13.000Z</published>
-    <updated>2017-05-14T16:29:32.711Z</updated>
+    <updated>2017-05-14T16:32:19.099Z</updated>
     
     <content type="html"><![CDATA[<h2 id="openfoam常用学习网址"><a href="#openfoam常用学习网址" class="headerlink" title="openfoam常用学习网址"></a>openfoam常用学习网址</h2><h2 id="软件地址："><a href="#软件地址：" class="headerlink" title="软件地址："></a>软件地址：</h2><p>官网地址：<a href="http://www.openfoam.org/" target="_blank" rel="external">http://www.openfoam.org/</a><br>extend版本地址：<a href="http://www.extend-project.de/" target="_blank" rel="external">http://www.extend-project.de/</a><br>openfoam wiki相关说明，修改信息：<a href="http://openfoamwiki.net/index.php/Main_Page" target="_blank" rel="external">http://openfoamwiki.net/index.php/Main_Page</a></p>
 <h2 id="论坛学习："><a href="#论坛学习：" class="headerlink" title="论坛学习："></a>论坛学习：</h2><p>东岳流体：<a href="http://www.dyfluid.com/index.html#intro" target="_blank" rel="external">http://www.dyfluid.com/index.html#intro</a><br>openfoam论坛：<a href="http://www.cfd-online.com/Forums/openfoam/" target="_blank" rel="external">http://www.cfd-online.com/Forums/openfoam/</a><br>openfoam workshop：<a href="http://openfoamworkshop.org/" target="_blank" rel="external">http://openfoamworkshop.org/</a><br>CFD Direct：<a href="http://cfd.direct/openfoam/user-guide/" target="_blank" rel="external">http://cfd.direct/openfoam/user-guide/</a></p>
@@ -66,7 +68,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="-OpenFOAM -常用网址" scheme="http://yoursite.com/tags/OpenFOAM-%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
     
   </entry>
   

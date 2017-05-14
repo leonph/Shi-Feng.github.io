@@ -8,7 +8,8 @@
         <category>DEM</category>
       </categories>
       <tags>
-        <tag>-DEM -常用网址</tag>
+        <tag>DEM</tag>
+        <tag>常用网址</tag>
       </tags>
   </entry>
   <entry>
@@ -19,7 +20,8 @@
         <category>OpenFOAM</category>
       </categories>
       <tags>
-        <tag>-OpenFOAM -常用网址</tag>
+        <tag>常用网址</tag>
+        <tag>OpenFOAM</tag>
       </tags>
   </entry>
   <entry>
