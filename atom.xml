@@ -73,6 +73,35 @@
   </entry>
   
   <entry>
+    <title>OpenFOAM固体力学模块</title>
+    <link href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6%E6%A8%A1%E5%9D%97/"/>
+    <id>http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM固体力学模块/</id>
+    <published>2017-05-14T16:15:13.000Z</published>
+    <updated>2017-12-24T11:54:11.403Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="openfoam常用学习网址"><a href="#openfoam常用学习网址" class="headerlink" title="openfoam常用学习网址"></a>openfoam常用学习网址</h2><h2 id="软件地址："><a href="#软件地址：" class="headerlink" title="软件地址："></a>软件地址：</h2><p>官网地址：<a href="http://www.openfoam.org/" target="_blank" rel="external">http://www.openfoam.org/</a><br>extend版本地址：<a href="http://www.extend-project.de/" target="_blank" rel="external">http://www.extend-project.de/</a><br>openfoam wiki相关说明，修改信息：<a href="http://openfoamwiki.net/index.php/Main_Page" target="_blank" rel="external">http://openfoamwiki.net/index.php/Main_Page</a></p>
+<h2 id="论坛学习："><a href="#论坛学习：" class="headerlink" title="论坛学习："></a>论坛学习：</h2><p>东岳流体：<a href="http://www.dyfluid.com/index.html#intro" target="_blank" rel="external">http://www.dyfluid.com/index.html#intro</a><br>openfoam论坛：<a href="http://www.cfd-online.com/Forums/openfoam/" target="_blank" rel="external">http://www.cfd-online.com/Forums/openfoam/</a><br>openfoam workshop：<a href="http://openfoamworkshop.org/" target="_blank" rel="external">http://openfoamworkshop.org/</a><br>CFD Direct：<a href="http://cfd.direct/openfoam/user-guide/" target="_blank" rel="external">http://cfd.direct/openfoam/user-guide/</a></p>
+<h2 id="博客知乎："><a href="#博客知乎：" class="headerlink" title="博客知乎："></a>博客知乎：</h2><p>苏军伟博客：<a href="http://blog.sina.com.cn/openfoamresearch" target="_blank" rel="external">http://blog.sina.com.cn/openfoamresearch</a><br>王洋博客：<a href="http://blog.sina.com.cn/multiphyzks" target="_blank" rel="external">http://blog.sina.com.cn/multiphyzks</a><br>乐天树的博客：<a href="http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html</a><br>知乎学习：<a href="https://www.zhihu.com/question/27185834?rf=27813194" target="_blank" rel="external">https://www.zhihu.com/question/27185834?rf=27813194</a><br>永无止境博客：<a href="http://openfoam.blog.sohu.com/entry/#entry" target="_blank" rel="external">http://openfoam.blog.sohu.com/entry/#entry</a><br>哈士奇爱喝酒的博客：<a href="http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html" target="_blank" rel="external">http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html</a><br>邱小平的博客：<a href="http://xiaopingqiu.github.io/" target="_blank" rel="external">http://xiaopingqiu.github.io/</a></p>
+<h2 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h2><p>JASAK博士论文：<a href="https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf" target="_blank" rel="external">https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf</a><br>Chalmers大学openfoam博士课程：<a href="http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/" target="_blank" rel="external">http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/</a><br>UNIGE Introductory OpenFOAM course-training:  <a href="http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html" target="_blank" rel="external">http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html</a></p>
+<h2 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h2><p>101 Things to read when starting with OpenFOAM：<a href="http://www.sourceflux.de/blog/101-things-read-starting-openfoam/" target="_blank" rel="external">http://www.sourceflux.de/blog/101-things-read-starting-openfoam/</a><br>openfoam history: <a href="http://www.openfoam.com/download/openfoam-history.php" target="_blank" rel="external">http://www.openfoam.com/download/openfoam-history.php</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      OpenFOAM 初学者常用网址
+    
+    </summary>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
+    
+    
+      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OpenFOAM常用网址</title>
     <link href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     <id>http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/</id>

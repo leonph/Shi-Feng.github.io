@@ -18,6 +18,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[OpenFOAM固体力学模块]]></title>
+    <url>%2F2017%2F05%2F15%2FOpenFOAM%2FOpenFOAM%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[openfoam常用学习网址软件地址：官网地址：http://www.openfoam.org/extend版本地址：http://www.extend-project.de/openfoam wiki相关说明，修改信息：http://openfoamwiki.net/index.php/Main_Page 论坛学习：东岳流体：http://www.dyfluid.com/index.html#introopenfoam论坛：http://www.cfd-online.com/Forums/openfoam/openfoam workshop：http://openfoamworkshop.org/CFD Direct：http://cfd.direct/openfoam/user-guide/ 博客知乎：苏军伟博客：http://blog.sina.com.cn/openfoamresearch王洋博客：http://blog.sina.com.cn/multiphyzks乐天树的博客：http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html知乎学习：https://www.zhihu.com/question/27185834?rf=27813194永无止境博客：http://openfoam.blog.sohu.com/entry/#entry哈士奇爱喝酒的博客：http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html邱小平的博客：http://xiaopingqiu.github.io/ 学习资料：JASAK博士论文：https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdfChalmers大学openfoam博士课程：http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/UNIGE Introductory OpenFOAM course-training: http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html 其他：101 Things to read when starting with OpenFOAM：http://www.sourceflux.de/blog/101-things-read-starting-openfoam/openfoam history: http://www.openfoam.com/download/openfoam-history.php]]></content>
+      <categories>
+        <category>OpenFOAM</category>
+      </categories>
+      <tags>
+        <tag>常用网址</tag>
+        <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OpenFOAM常用网址]]></title>
     <url>%2F2017%2F05%2F15%2FOpenFOAM%2FOpenFOAM%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80%2F</url>
     <content type="text"><![CDATA[openfoam常用学习网址软件地址：官网地址：http://www.openfoam.org/extend版本地址：http://www.extend-project.de/openfoam wiki相关说明，修改信息：http://openfoamwiki.net/index.php/Main_Page 论坛学习：东岳流体：http://www.dyfluid.com/index.html#introopenfoam论坛：http://www.cfd-online.com/Forums/openfoam/openfoam workshop：http://openfoamworkshop.org/CFD Direct：http://cfd.direct/openfoam/user-guide/ 博客知乎：苏军伟博客：http://blog.sina.com.cn/openfoamresearch王洋博客：http://blog.sina.com.cn/multiphyzks乐天树的博客：http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html知乎学习：https://www.zhihu.com/question/27185834?rf=27813194永无止境博客：http://openfoam.blog.sohu.com/entry/#entry哈士奇爱喝酒的博客：http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html邱小平的博客：http://xiaopingqiu.github.io/ 学习资料：JASAK博士论文：https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdfChalmers大学openfoam博士课程：http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/UNIGE Introductory OpenFOAM course-training: http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html 其他：101 Things to read when starting with OpenFOAM：http://www.sourceflux.de/blog/101-things-read-starting-openfoam/openfoam history: http://www.openfoam.com/download/openfoam-history.php]]></content>
