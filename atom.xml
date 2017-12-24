@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-24T12:50:59.049Z</updated>
+  <updated>2017-12-24T12:58:48.505Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,21 +20,21 @@
     <link href="http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
     <id>http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/</id>
     <published>2017-12-24T12:37:10.000Z</published>
-    <updated>2017-12-24T12:50:59.049Z</updated>
+    <updated>2017-12-24T12:58:48.505Z</updated>
     
     <content type="html"><![CDATA[<p>OpenFOAM固体力学模块学习资料</p>
-<p>OpenFOAM因其强大的方程求解功能，现在已逐渐被应用于固体力学的求解中，特别是流固相互作用的研究（海上风电基础受力、水压破裂等）。<br>现阶段针对固体力学的求解，主要是爱尔兰都柏林大学的Philip Cardiff作了大量的工作，其很多成果已嵌入至OpenFOAM EXTEND版本中。</p>
+<p>OpenFOAM因其强大的方程求解功能，现在已逐渐被应用于固体力学的求解中，特别是流固相互作用的研究（海上风电基础受力、水压破裂等）。</p>
+<p>现阶段针对固体力学的求解，主要是爱尔兰都柏林大学的Philip Cardiff作了大量的工作，其很多成果已嵌入至OpenFOAM EXTEND版本中。</p>
 <ol>
-<li><p>CFD论坛OpenFOAM固体力学模块：<a href="https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html" target="_blank" rel="external">https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html</a></p>
+<li><p>CFD论坛OpenFOAM固体力学模块<br><a href="https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html" target="_blank" rel="external">https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html</a></p>
 </li>
-<li><p>流固耦合求解器：<a href="https://github.com/wyldckat/FluidStructureInteraction" target="_blank" rel="external">https://github.com/wyldckat/FluidStructureInteraction</a></p>
-<pre><code>http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction
-</code></pre></li>
-<li><p>唐甜土体BIOT固结求解器：<a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master" target="_blank" rel="external">https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master</a></p>
+<li><p>流固耦合求解器<br><a href="https://github.com/wyldckat/FluidStructureInteraction" target="_blank" rel="external">https://github.com/wyldckat/FluidStructureInteraction</a><br><a href="http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction" target="_blank" rel="external">http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction</a></p>
 </li>
-<li><p>Hisham Elsafti编写的geotechFoam求解器：<a href="https://bitbucket.org/HishamElSafti/geotechfoam" target="_blank" rel="external">https://bitbucket.org/HishamElSafti/geotechfoam</a></p>
+<li><p>唐甜土体BIOT固结求解器<br><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master" target="_blank" rel="external">https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master</a></p>
 </li>
-<li><p>Philip Cardiff 编写的solid4Foam模块：<a href="https://bitbucket.org/philip_cardiff/solids4foam" target="_blank" rel="external">https://bitbucket.org/philip_cardiff/solids4foam</a></p>
+<li><p>Hisham Elsafti编写的geotechFoam求解器<br><a href="https://bitbucket.org/HishamElSafti/geotechfoam" target="_blank" rel="external">https://bitbucket.org/HishamElSafti/geotechfoam</a></p>
+</li>
+<li><p>Philip Cardiff 编写的solid4Foam模块<br><a href="https://bitbucket.org/philip_cardiff/solids4foam" target="_blank" rel="external">https://bitbucket.org/philip_cardiff/solids4foam</a></p>
 </li>
 </ol>
 ]]></content>
@@ -49,33 +49,6 @@
       <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     
       <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/12/24/hello-world/"/>
-    <id>http://yoursite.com/2017/12/24/hello-world/</id>
-    <published>2017-12-24T11:22:15.754Z</published>
-    <updated>2017-05-14T08:27:58.928Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
     
   </entry>
   
