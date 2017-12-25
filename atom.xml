@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-24T12:58:48.505Z</updated>
+  <updated>2017-12-25T15:52:21.652Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20171225圣诞日</title>
+    <link href="http://yoursite.com/2017/12/25/DailyLife/20171225%E5%9C%A3%E8%AF%9E%E6%97%A5/"/>
+    <id>http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/</id>
+    <published>2017-12-25T15:38:13.000Z</published>
+    <updated>2017-12-25T15:52:21.652Z</updated>
+    
+    <content type="html"><![CDATA[<p>—20171225圣诞日—</p>
+<pre><code>晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。
+
+想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希望自己在接下来的这一年非学制内的时间里脚踏实地、
+</code></pre><p>耐住寂寞，尽自己的全力准备大论文吧。</p>
+<p>  20171225<br>  by Shifeng</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;—20171225圣诞日—&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。
+
+想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业
+    
+    </summary>
+    
+      <category term="DailyLife" scheme="http://yoursite.com/categories/DailyLife/"/>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="琐事" scheme="http://yoursite.com/tags/%E7%90%90%E4%BA%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenFOAM固体力学模块学习资料</title>

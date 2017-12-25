@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[20171225圣诞日]]></title>
+    <url>%2F2017%2F12%2F25%2FDailyLife%2F20171225%E5%9C%A3%E8%AF%9E%E6%97%A5%2F</url>
+    <content type="text"><![CDATA[—20171225圣诞日— 晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。 想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希望自己在接下来的这一年非学制内的时间里脚踏实地、 耐住寂寞，尽自己的全力准备大论文吧。 20171225 by Shifeng]]></content>
+      <categories>
+        <category>DailyLife</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>琐事</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OpenFOAM固体力学模块学习资料]]></title>
     <url>%2F2017%2F12%2F24%2FOpenFOAM%2FOpenFOAM%E5%9B%BA%E4%BD%93%E5%8A%9B%E5%AD%A6%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%2F</url>
     <content type="text"><![CDATA[OpenFOAM固体力学模块学习资料 OpenFOAM因其强大的方程求解功能，现在已逐渐被应用于固体力学的求解中，特别是流固相互作用的研究（海上风电基础受力、水压破裂等）。 现阶段针对固体力学的求解，主要是爱尔兰都柏林大学的Philip Cardiff作了大量的工作，其很多成果已嵌入至OpenFOAM EXTEND版本中。 CFD论坛OpenFOAM固体力学模块https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html 流固耦合求解器https://github.com/wyldckat/FluidStructureInteractionhttp://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction 唐甜土体BIOT固结求解器https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master Hisham Elsafti编写的geotechFoam求解器https://bitbucket.org/HishamElSafti/geotechfoam Philip Cardiff 编写的solid4Foam模块https://bitbucket.org/philip_cardiff/solids4foam]]></content>
