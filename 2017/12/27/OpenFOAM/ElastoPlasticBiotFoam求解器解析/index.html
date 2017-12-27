@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/index.html">
 <meta property="og:site_name" content="Shi-Feng Lu">
 <meta property="og:description" content="基本介绍ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。求解器的详细理论说明可参考TANG TIAN的论文：Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method im">
-<meta property="og:updated_time" content="2017-12-27T06:08:44.166Z">
+<meta property="og:updated_time" content="2017-12-27T06:16:36.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElastoPlasticBiotFoam求解器解析">
 <meta name="twitter:description" content="基本介绍ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。求解器的详细理论说明可参考TANG TIAN的论文：Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method im">
@@ -498,8 +498,8 @@
           }          
 
       } while (initialResidual &gt; convergenceTolerance &amp;&amp; iCorr &lt; nCorr); //收敛精度判断，满足，下一时间步，不满足，下一迭代步
-</code></pre><p>其中主要设计两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。</p>
-<p>…未完待续。</p>
+</code></pre><p>其中主要涉及两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。孔压方程的求解部分相对简单易懂，位移增量方程的求解部分相对难懂，<br>需要结合论文熟悉其理论知识，包括为优化收敛性所做的左右laplacian项平衡处理，以及塑性修正部分的理论（难点在于找到合适的应力积分算法）。</p>
+<p>…未完待续…</p>
 <p><em>By Shifeng</em></p>
 
       
