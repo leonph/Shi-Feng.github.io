@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-27T06:16:36.973Z</updated>
+  <updated>2017-12-27T06:36:55.113Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam%E6%B1%82%E8%A7%A3%E5%99%A8%E8%A7%A3%E6%9E%90/"/>
     <id>http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/</id>
     <published>2017-12-27T05:15:43.000Z</published>
-    <updated>2017-12-27T06:16:36.973Z</updated>
+    <updated>2017-12-27T06:36:55.113Z</updated>
     
     <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。<br>求解器的详细理论说明可参考TANG TIAN的论文：<a href="http://onlinelibrary.wiley.com/doi/10.1002/nag.2361/full" target="_blank" rel="external">Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method implementation of poro‐elasto‐plasticity soil model. International journal for numerical and analytical methods in geomechanics, 39(13), pp.1410-1430.</a></p>
 <h2 id="求解器代码"><a href="#求解器代码" class="headerlink" title="求解器代码"></a>求解器代码</h2><p><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9/solvers/soil/?at=master" target="_blank" rel="external">代码下载</a></p>
@@ -105,7 +105,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;基本介绍&quot;&gt;&lt;a href=&quot;#基本介绍&quot; class=&quot;headerlink&quot; title=&quot;基本介绍&quot;&gt;&lt;/a&gt;基本介绍&lt;/h2&gt;&lt;p&gt;ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法
+      ElastoPlasticBiotFoam求解器描述及代码分析
     
     </summary>
     
@@ -181,9 +181,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
-    
       <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
     
   </entry>
   
@@ -240,9 +240,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
-    
       <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
     
   </entry>
   
