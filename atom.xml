@@ -2,6 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Shi-Feng Lu</title>
   
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -22,87 +23,7 @@
     <published>2017-12-27T05:15:43.000Z</published>
     <updated>2017-12-27T06:36:55.113Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。<br>求解器的详细理论说明可参考TANG TIAN的论文：<a href="http://onlinelibrary.wiley.com/doi/10.1002/nag.2361/full" target="_blank" rel="external">Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method implementation of poro‐elasto‐plasticity soil model. International journal for numerical and analytical methods in geomechanics, 39(13), pp.1410-1430.</a></p>
-<h2 id="求解器代码"><a href="#求解器代码" class="headerlink" title="求解器代码"></a>求解器代码</h2><p><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9/solvers/soil/?at=master" target="_blank" rel="external">代码下载</a></p>
-<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><ul>
-<li>求解器主程序</li>
-</ul>
-<pre><code>for (runTime++; !runTime.end(); runTime++)
-{
-    Info&lt;&lt; &quot;Time: &quot; &lt;&lt; runTime.timeName() &lt;&lt; nl &lt;&lt; endl;
-    #include &quot;readElastoPlasticBiotFoamControls.H&quot; //读取求解器的控制参数
-    int iCorr = 0; //迭代次数
-    scalar initialResidual = GREAT;  //迭代初始残差     
-    lduMatrix::solverPerformance solverPerfP;
-    lduMatrix::solverPerformance solverPerfDU;
-
-    // gives an option for switching off the plasticity
-    // solves the original poro-elastic Biot&apos;s equations
-    word correct=word(runTime.controlDict().lookup(&quot;correctPlasticity&quot;)); //是否修正塑性
-
-    do 
-      {
-        iCorr++;
-
-        // store previous iteration, since later p will be under-relaxed    
-        p.storePrevIter(); //后期压力场放松使用
-
-        // solve the pore pressure equation 求解压力方程
-        fvScalarMatrix pEqn             
-        (
-                  fvm::ddt(p) == fvm::laplacian(Dp, p) - fvc::div(fvc::ddt(Dp2,U))             
-        );
-        solverPerfP = pEqn.solve(); 
-        p.relax();//压力场放松
-        dp = p - p.oldTime();//更新孔压增量
-        dp.correctBoundaryConditions();//因孔压属于方程求解量，更新孔压增量边界值
-
-        // store previous iteration, since later dU will be under-relaxed        
-        dU.storePrevIter();//后期位移增量场放松使用
-
-        // calculate the explicit part of div stress 
-        #   include &quot;calculateDivDsigmaExp.H&quot;//显示计算应力相关项
-
-        // solve the momentum (soil skeleton displacement) equation with 
-        // &apos;lagged&apos; pressure coupling, plasticity and cross-component coupling
-        fvVectorMatrix dUEqn
-        (
-            fvm::laplacian(2.0*mu + lambda, dU, &quot;laplacian(dU)&quot;)
-         ==
-            - divDsigmaExp 
-            + fvc::div(2.0*mu*(mesh.Sf() &amp; fvc::interpolate(dEpsP)))
-            + fvc::div(lambda*(mesh.Sf() &amp; I*fvc::interpolate(tr(dEpsP))))
-            + fvc::grad(dp) 
-        ); 
-        solverPerfDU = dUEqn.solve();
-
-        dU.relax(); //位移场放松
-
-        gradDU = fvc::grad(dU);//更新位移梯度
-
-        // update stress and plastic strains if plasticity option is switched on           
-        if (correct==&quot;yes&quot;)
-        {
-          # include &quot;correctPlasticity.H&quot; //修正塑性，此处采用的是摩尔库伦模型
-        } 
-
-        initialResidual = max(solverPerfP.initialResidual(),solverPerfDU.initialResidual());
-
-        U = U.oldTime()+dU;
-        U.correctBoundaryConditions();
-
-       if (iCorr % 10 == 1){ Info &lt;&lt; &quot;\tTime &quot; &lt;&lt; runTime.value()
-         &lt;&lt; &quot;, Corrector &quot; &lt;&lt; iCorr
-         &lt;&lt; &quot;, Solving for &quot; &lt;&lt; dU.name()
-         &lt;&lt; &quot;, residual = &quot; &lt;&lt; initialResidual &lt;&lt; endl;   
-          }          
-
-      } while (initialResidual &gt; convergenceTolerance &amp;&amp; iCorr &lt; nCorr); //收敛精度判断，满足，下一时间步，不满足，下一迭代步
-</code></pre><p>其中主要涉及两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。孔压方程的求解部分相对简单易懂，位移增量方程的求解部分相对难懂，<br>需要结合论文熟悉其理论知识，包括为优化收敛性所做的左右laplacian项平衡处理，以及塑性修正部分的理论（难点在于找到合适的应力积分算法）。</p>
-<p>…未完待续…</p>
-<p><em>By Shifeng</em></p>
-<p>hello <a href="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/">http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/</a> bye</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。<br>求解器的详细理论说明可参考TANG TIAN的论文：<a href="http://onlinelibrary.wiley.com/doi/10.1002/nag.2361/full" target="_blank" rel="external">Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method implementation of poro‐elasto‐plasticity soil model. International journal for numerical and analytical methods in geomechanics, 39(13), pp.1410-1430.</a></p><h2 id="求解器代码"><a href="#求解器代码" class="headerlink" title="求解器代码"></a>求解器代码</h2><p><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9/solvers/soil/?at=master" target="_blank" rel="external">代码下载</a></p><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><ul><li>求解器主程序</li></ul><pre><code>for (runTime++; !runTime.end(); runTime++){    Info&lt;&lt; &quot;Time: &quot; &lt;&lt; runTime.timeName() &lt;&lt; nl &lt;&lt; endl;    #include &quot;readElastoPlasticBiotFoamControls.H&quot; //读取求解器的控制参数    int iCorr = 0; //迭代次数    scalar initialResidual = GREAT;  //迭代初始残差         lduMatrix::solverPerformance solverPerfP;    lduMatrix::solverPerformance solverPerfDU;    // gives an option for switching off the plasticity    // solves the original poro-elastic Biot&apos;s equations    word correct=word(runTime.controlDict().lookup(&quot;correctPlasticity&quot;)); //是否修正塑性    do       {        iCorr++;        // store previous iteration, since later p will be under-relaxed            p.storePrevIter(); //后期压力场放松使用        // solve the pore pressure equation 求解压力方程        fvScalarMatrix pEqn                     (                  fvm::ddt(p) == fvm::laplacian(Dp, p) - fvc::div(fvc::ddt(Dp2,U))                     );        solverPerfP = pEqn.solve();         p.relax();//压力场放松        dp = p - p.oldTime();//更新孔压增量        dp.correctBoundaryConditions();//因孔压属于方程求解量，更新孔压增量边界值        // store previous iteration, since later dU will be under-relaxed                dU.storePrevIter();//后期位移增量场放松使用        // calculate the explicit part of div stress         #   include &quot;calculateDivDsigmaExp.H&quot;//显示计算应力相关项        // solve the momentum (soil skeleton displacement) equation with         // &apos;lagged&apos; pressure coupling, plasticity and cross-component coupling        fvVectorMatrix dUEqn        (            fvm::laplacian(2.0*mu + lambda, dU, &quot;laplacian(dU)&quot;)         ==            - divDsigmaExp             + fvc::div(2.0*mu*(mesh.Sf() &amp; fvc::interpolate(dEpsP)))            + fvc::div(lambda*(mesh.Sf() &amp; I*fvc::interpolate(tr(dEpsP))))            + fvc::grad(dp)         );         solverPerfDU = dUEqn.solve();        dU.relax(); //位移场放松        gradDU = fvc::grad(dU);//更新位移梯度        // update stress and plastic strains if plasticity option is switched on                   if (correct==&quot;yes&quot;)        {          # include &quot;correctPlasticity.H&quot; //修正塑性，此处采用的是摩尔库伦模型        }         initialResidual = max(solverPerfP.initialResidual(),solverPerfDU.initialResidual());        U = U.oldTime()+dU;        U.correctBoundaryConditions();       if (iCorr % 10 == 1){ Info &lt;&lt; &quot;\tTime &quot; &lt;&lt; runTime.value()         &lt;&lt; &quot;, Corrector &quot; &lt;&lt; iCorr         &lt;&lt; &quot;, Solving for &quot; &lt;&lt; dU.name()         &lt;&lt; &quot;, residual = &quot; &lt;&lt; initialResidual &lt;&lt; endl;             }                } while (initialResidual &gt; convergenceTolerance &amp;&amp; iCorr &lt; nCorr); //收敛精度判断，满足，下一时间步，不满足，下一迭代步</code></pre><p>其中主要涉及两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。孔压方程的求解部分相对简单易懂，位移增量方程的求解部分相对难懂，<br>需要结合论文熟悉其理论知识，包括为优化收敛性所做的左右laplacian项平衡处理，以及塑性修正部分的理论（难点在于找到合适的应力积分算法）。</p><p>…未完待续…</p><p><em>By Shifeng</em></p><p>本文地址 <a href="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/">http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/</a> </p>]]></content>
     
     <summary type="html">
     
@@ -126,18 +47,16 @@
     <published>2017-12-25T15:38:13.000Z</published>
     <updated>2017-12-25T16:15:36.363Z</updated>
     
-    <content type="html"><![CDATA[<p>—20171225圣诞日—</p>
-<p>晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。</p>
-<p>想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希望自己在接下来的这一年非学制内的时间里脚踏实地、耐住寂寞，尽自己的全力准备大论文吧。</p>
-<p>  20171225<br>  by <strong><em>Shifeng</em></strong></p>
-<p>hello <a href="http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/">http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/</a> bye</p>
-]]></content>
+    <content type="html"><![CDATA[<p>—20171225圣诞日—</p><p>晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。</p><p>想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希望自己在接下来的这一年非学制内的时间里脚踏实地、耐住寂寞，尽自己的全力准备大论文吧。</p><p>  20171225<br>  by <strong><em>Shifeng</em></strong></p><p>本文地址 <a href="http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/">http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/</a> </p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;—20171225圣诞日—&lt;/p&gt;
+      
+      
+        &lt;p&gt;—20171225圣诞日—&lt;/p&gt;
 &lt;p&gt;晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。&lt;/p&gt;
 &lt;p&gt;想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希
+      
     
     </summary>
     
@@ -157,23 +76,7 @@
     <published>2017-12-24T12:37:10.000Z</published>
     <updated>2017-12-27T05:53:17.169Z</updated>
     
-    <content type="html"><![CDATA[<p>OpenFOAM固体力学模块学习资料</p>
-<p>OpenFOAM因其强大的方程求解功能，现在已逐渐被应用于固体力学的求解中，特别是流固相互作用的研究（海上风电基础受力、水压破裂等）。</p>
-<p>现阶段针对固体力学的求解，主要是爱尔兰都柏林大学的Philip Cardiff作了大量的工作，其很多成果已嵌入至OpenFOAM EXTEND版本中。</p>
-<ol>
-<li><p>CFD论坛OpenFOAM固体力学模块<br><a href="https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html" target="_blank" rel="external">https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html</a></p>
-</li>
-<li><p>流固耦合求解器<br><a href="https://github.com/wyldckat/FluidStructureInteraction" target="_blank" rel="external">https://github.com/wyldckat/FluidStructureInteraction</a><br><a href="http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction" target="_blank" rel="external">http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction</a></p>
-</li>
-<li><p>唐甜土体BIOT固结求解器<br><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master" target="_blank" rel="external">https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master</a></p>
-</li>
-<li><p>Hisham Elsafti编写的geotechFoam求解器<br><a href="https://bitbucket.org/HishamElSafti/geotechfoam" target="_blank" rel="external">https://bitbucket.org/HishamElSafti/geotechfoam</a></p>
-</li>
-<li><p>Philip Cardiff 编写的solid4Foam模块<br><a href="https://bitbucket.org/philip_cardiff/solids4foam" target="_blank" rel="external">https://bitbucket.org/philip_cardiff/solids4foam</a></p>
-</li>
-</ol>
-<p>hello <a href="http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/">http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/</a> bye</p>
-]]></content>
+    <content type="html"><![CDATA[<p>OpenFOAM固体力学模块学习资料</p><p>OpenFOAM因其强大的方程求解功能，现在已逐渐被应用于固体力学的求解中，特别是流固相互作用的研究（海上风电基础受力、水压破裂等）。</p><p>现阶段针对固体力学的求解，主要是爱尔兰都柏林大学的Philip Cardiff作了大量的工作，其很多成果已嵌入至OpenFOAM EXTEND版本中。</p><ol><li><p>CFD论坛OpenFOAM固体力学模块<br><a href="https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html" target="_blank" rel="external">https://www.cfd-online.com/Forums/openfoam/126706-support-thread-solid-mechanics-solvers-added-openfoam-extend.html</a></p></li><li><p>流固耦合求解器<br><a href="https://github.com/wyldckat/FluidStructureInteraction" target="_blank" rel="external">https://github.com/wyldckat/FluidStructureInteraction</a><br><a href="http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction" target="_blank" rel="external">http://openfoamwiki.net/index.php/Extend-bazaar/Toolkits/Fluid-structure_interaction</a></p></li><li><p>唐甜土体BIOT固结求解器<br><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master" target="_blank" rel="external">https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9?at=master</a></p></li><li><p>Hisham Elsafti编写的geotechFoam求解器<br><a href="https://bitbucket.org/HishamElSafti/geotechfoam" target="_blank" rel="external">https://bitbucket.org/HishamElSafti/geotechfoam</a></p></li><li><p>Philip Cardiff 编写的solid4Foam模块<br><a href="https://bitbucket.org/philip_cardiff/solids4foam" target="_blank" rel="external">https://bitbucket.org/philip_cardiff/solids4foam</a></p></li></ol><p>本文地址 <a href="http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/">http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/</a> </p>]]></content>
     
     <summary type="html">
     
@@ -184,9 +87,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
-    
       <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
     
   </entry>
   
@@ -197,14 +100,7 @@
     <published>2017-05-14T16:16:23.000Z</published>
     <updated>2017-05-14T16:34:03.502Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="离散元开源软件学习常用学习网址"><a href="#离散元开源软件学习常用学习网址" class="headerlink" title="离散元开源软件学习常用学习网址"></a>离散元开源软件学习常用学习网址</h1><h2 id="1-Esys-Particle"><a href="#1-Esys-Particle" class="headerlink" title="1 Esys-Particle"></a>1 Esys-Particle</h2><p>相关链接：<br><a href="https://launchpad.net/" target="_blank" rel="external">https://launchpad.net/</a><br><a href="https://launchpad.net/esys-particle" target="_blank" rel="external">https://launchpad.net/esys-particle</a><br><a href="http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html" target="_blank" rel="external">http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html</a><br><a href="https://launchpad.net/esys-particle/+announcements" target="_blank" rel="external">https://launchpad.net/esys-particle/+announcements </a></p>
-<h2 id="2-yade"><a href="#2-yade" class="headerlink" title="2 yade"></a>2 yade</h2><p>相关链接</p>
-<p><a href="https://yade-dem.org/" target="_blank" rel="external">https://yade-dem.org/</a> </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ol>
-<li>yade的优势比paticle多：计算快，开发团队强大</li>
-</ol>
-<p>hello <a href="http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/">http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/</a> bye</p>
-]]></content>
+    <content type="html"><![CDATA[<h1 id="离散元开源软件学习常用学习网址"><a href="#离散元开源软件学习常用学习网址" class="headerlink" title="离散元开源软件学习常用学习网址"></a>离散元开源软件学习常用学习网址</h1><h2 id="1-Esys-Particle"><a href="#1-Esys-Particle" class="headerlink" title="1 Esys-Particle"></a>1 Esys-Particle</h2><p>相关链接：<br><a href="https://launchpad.net/" target="_blank" rel="external">https://launchpad.net/</a><br><a href="https://launchpad.net/esys-particle" target="_blank" rel="external">https://launchpad.net/esys-particle</a><br><a href="http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html" target="_blank" rel="external">http://esys.geocomp.uq.edu.au/esys-particle_python_doc/current/pythonapi/html/index.html</a><br><a href="https://launchpad.net/esys-particle/+announcements" target="_blank" rel="external">https://launchpad.net/esys-particle/+announcements </a></p><h2 id="2-yade"><a href="#2-yade" class="headerlink" title="2 yade"></a>2 yade</h2><p>相关链接</p><p><a href="https://yade-dem.org/" target="_blank" rel="external">https://yade-dem.org/</a> </p><h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ol><li>yade的优势比paticle多：计算快，开发团队强大</li></ol><p>本文地址 <a href="http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/">http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/</a> </p>]]></content>
     
     <summary type="html">
     
@@ -228,13 +124,7 @@
     <published>2017-05-14T16:15:13.000Z</published>
     <updated>2017-05-14T16:34:34.832Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="openfoam常用学习网址"><a href="#openfoam常用学习网址" class="headerlink" title="openfoam常用学习网址"></a>openfoam常用学习网址</h2><h2 id="软件地址："><a href="#软件地址：" class="headerlink" title="软件地址："></a>软件地址：</h2><p>官网地址：<a href="http://www.openfoam.org/" target="_blank" rel="external">http://www.openfoam.org/</a><br>extend版本地址：<a href="http://www.extend-project.de/" target="_blank" rel="external">http://www.extend-project.de/</a><br>openfoam wiki相关说明，修改信息：<a href="http://openfoamwiki.net/index.php/Main_Page" target="_blank" rel="external">http://openfoamwiki.net/index.php/Main_Page</a></p>
-<h2 id="论坛学习："><a href="#论坛学习：" class="headerlink" title="论坛学习："></a>论坛学习：</h2><p>东岳流体：<a href="http://www.dyfluid.com/index.html#intro" target="_blank" rel="external">http://www.dyfluid.com/index.html#intro</a><br>openfoam论坛：<a href="http://www.cfd-online.com/Forums/openfoam/" target="_blank" rel="external">http://www.cfd-online.com/Forums/openfoam/</a><br>openfoam workshop：<a href="http://openfoamworkshop.org/" target="_blank" rel="external">http://openfoamworkshop.org/</a><br>CFD Direct：<a href="http://cfd.direct/openfoam/user-guide/" target="_blank" rel="external">http://cfd.direct/openfoam/user-guide/</a></p>
-<h2 id="博客知乎："><a href="#博客知乎：" class="headerlink" title="博客知乎："></a>博客知乎：</h2><p>苏军伟博客：<a href="http://blog.sina.com.cn/openfoamresearch" target="_blank" rel="external">http://blog.sina.com.cn/openfoamresearch</a><br>王洋博客：<a href="http://blog.sina.com.cn/multiphyzks" target="_blank" rel="external">http://blog.sina.com.cn/multiphyzks</a><br>乐天树的博客：<a href="http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html</a><br>知乎学习：<a href="https://www.zhihu.com/question/27185834?rf=27813194" target="_blank" rel="external">https://www.zhihu.com/question/27185834?rf=27813194</a><br>永无止境博客：<a href="http://openfoam.blog.sohu.com/entry/#entry" target="_blank" rel="external">http://openfoam.blog.sohu.com/entry/#entry</a><br>哈士奇爱喝酒的博客：<a href="http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html" target="_blank" rel="external">http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html</a><br>邱小平的博客：<a href="http://xiaopingqiu.github.io/" target="_blank" rel="external">http://xiaopingqiu.github.io/</a></p>
-<h2 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h2><p>JASAK博士论文：<a href="https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf" target="_blank" rel="external">https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf</a><br>Chalmers大学openfoam博士课程：<a href="http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/" target="_blank" rel="external">http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/</a><br>UNIGE Introductory OpenFOAM course-training:  <a href="http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html" target="_blank" rel="external">http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html</a></p>
-<h2 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h2><p>101 Things to read when starting with OpenFOAM：<a href="http://www.sourceflux.de/blog/101-things-read-starting-openfoam/" target="_blank" rel="external">http://www.sourceflux.de/blog/101-things-read-starting-openfoam/</a><br>openfoam history: <a href="http://www.openfoam.com/download/openfoam-history.php" target="_blank" rel="external">http://www.openfoam.com/download/openfoam-history.php</a></p>
-<p>hello <a href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/">http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/</a> bye</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="openfoam常用学习网址"><a href="#openfoam常用学习网址" class="headerlink" title="openfoam常用学习网址"></a>openfoam常用学习网址</h2><h2 id="软件地址："><a href="#软件地址：" class="headerlink" title="软件地址："></a>软件地址：</h2><p>官网地址：<a href="http://www.openfoam.org/" target="_blank" rel="external">http://www.openfoam.org/</a><br>extend版本地址：<a href="http://www.extend-project.de/" target="_blank" rel="external">http://www.extend-project.de/</a><br>openfoam wiki相关说明，修改信息：<a href="http://openfoamwiki.net/index.php/Main_Page" target="_blank" rel="external">http://openfoamwiki.net/index.php/Main_Page</a></p><h2 id="论坛学习："><a href="#论坛学习：" class="headerlink" title="论坛学习："></a>论坛学习：</h2><p>东岳流体：<a href="http://www.dyfluid.com/index.html#intro" target="_blank" rel="external">http://www.dyfluid.com/index.html#intro</a><br>openfoam论坛：<a href="http://www.cfd-online.com/Forums/openfoam/" target="_blank" rel="external">http://www.cfd-online.com/Forums/openfoam/</a><br>openfoam workshop：<a href="http://openfoamworkshop.org/" target="_blank" rel="external">http://openfoamworkshop.org/</a><br>CFD Direct：<a href="http://cfd.direct/openfoam/user-guide/" target="_blank" rel="external">http://cfd.direct/openfoam/user-guide/</a></p><h2 id="博客知乎："><a href="#博客知乎：" class="headerlink" title="博客知乎："></a>博客知乎：</h2><p>苏军伟博客：<a href="http://blog.sina.com.cn/openfoamresearch" target="_blank" rel="external">http://blog.sina.com.cn/openfoamresearch</a><br>王洋博客：<a href="http://blog.sina.com.cn/multiphyzks" target="_blank" rel="external">http://blog.sina.com.cn/multiphyzks</a><br>乐天树的博客：<a href="http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html</a><br>知乎学习：<a href="https://www.zhihu.com/question/27185834?rf=27813194" target="_blank" rel="external">https://www.zhihu.com/question/27185834?rf=27813194</a><br>永无止境博客：<a href="http://openfoam.blog.sohu.com/entry/#entry" target="_blank" rel="external">http://openfoam.blog.sohu.com/entry/#entry</a><br>哈士奇爱喝酒的博客：<a href="http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html" target="_blank" rel="external">http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html</a><br>邱小平的博客：<a href="http://xiaopingqiu.github.io/" target="_blank" rel="external">http://xiaopingqiu.github.io/</a></p><h2 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h2><p>JASAK博士论文：<a href="https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf" target="_blank" rel="external">https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf</a><br>Chalmers大学openfoam博士课程：<a href="http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/" target="_blank" rel="external">http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/</a><br>UNIGE Introductory OpenFOAM course-training:  <a href="http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html" target="_blank" rel="external">http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html</a></p><h2 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h2><p>101 Things to read when starting with OpenFOAM：<a href="http://www.sourceflux.de/blog/101-things-read-starting-openfoam/" target="_blank" rel="external">http://www.sourceflux.de/blog/101-things-read-starting-openfoam/</a><br>openfoam history: <a href="http://www.openfoam.com/download/openfoam-history.php" target="_blank" rel="external">http://www.openfoam.com/download/openfoam-history.php</a></p><p>本文地址 <a href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/">http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/</a> </p>]]></content>
     
     <summary type="html">
     
@@ -245,9 +135,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
-    
       <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
+    
+      <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
     
   </entry>
   
