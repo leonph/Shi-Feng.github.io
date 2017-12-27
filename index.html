@@ -420,14 +420,88 @@
 
       
         
-          ElastoPlasticBiotFoam求解器解析
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>ElastoPlasticBiotFoam求解器是TANG TIAN完成其博士论文研究过程中编写的求解器，主要采用有限体积法进行饱和土的比奥固结问题分析。 其中土体本构采用理想塑性摩尔库伦本构模型。<br>求解器的详细理论说明可参考TANG TIAN的论文：<a href="http://onlinelibrary.wiley.com/doi/10.1002/nag.2361/full" target="_blank" rel="external">Tang, T., Hededal, O. and Cardiff, P., 2015. On finite volume method implementation of poro‐elasto‐plasticity soil model. International journal for numerical and analytical methods in geomechanics, 39(13), pp.1410-1430.</a></p>
+<h2 id="求解器代码"><a href="#求解器代码" class="headerlink" title="求解器代码"></a>求解器代码</h2><p><a href="https://bitbucket.org/tiantang/minigeotechfoam/src/defdcd6abf32b7a77d5d5a0cf27d0d3270ab84d9/solvers/soil/?at=master" target="_blank" rel="external">代码下载</a></p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><ul>
+<li>求解器主程序</li>
+</ul>
+<pre><code>for (runTime++; !runTime.end(); runTime++)
+{
+    Info&lt;&lt; &quot;Time: &quot; &lt;&lt; runTime.timeName() &lt;&lt; nl &lt;&lt; endl;
+    #include &quot;readElastoPlasticBiotFoamControls.H&quot; //读取求解器的控制参数
+    int iCorr = 0; //迭代次数
+    scalar initialResidual = GREAT;  //迭代初始残差     
+    lduMatrix::solverPerformance solverPerfP;
+    lduMatrix::solverPerformance solverPerfDU;
+
+    // gives an option for switching off the plasticity
+    // solves the original poro-elastic Biot&apos;s equations
+    word correct=word(runTime.controlDict().lookup(&quot;correctPlasticity&quot;)); //是否修正塑性
+
+    do 
+      {
+        iCorr++;
+
+        // store previous iteration, since later p will be under-relaxed    
+        p.storePrevIter(); //后期压力场放松使用
+
+        // solve the pore pressure equation 求解压力方程
+        fvScalarMatrix pEqn             
+        (
+                  fvm::ddt(p) == fvm::laplacian(Dp, p) - fvc::div(fvc::ddt(Dp2,U))             
+        );
+        solverPerfP = pEqn.solve(); 
+        p.relax();//压力场放松
+        dp = p - p.oldTime();//更新孔压增量
+        dp.correctBoundaryConditions();//因孔压属于方程求解量，更新孔压增量边界值
+
+        // store previous iteration, since later dU will be under-relaxed        
+        dU.storePrevIter();//后期位移增量场放松使用
+
+        // calculate the explicit part of div stress 
+        #   include &quot;calculateDivDsigmaExp.H&quot;//显示计算应力相关项
+
+        // solve the momentum (soil skeleton displacement) equation with 
+        // &apos;lagged&apos; pressure coupling, plasticity and cross-component coupling
+        fvVectorMatrix dUEqn
+        (
+            fvm::laplacian(2.0*mu + lambda, dU, &quot;laplacian(dU)&quot;)
+         ==
+            - divDsigmaExp 
+            + fvc::div(2.0*mu*(mesh.Sf() &amp; fvc::interpolate(dEpsP)))
+            + fvc::div(lambda*(mesh.Sf() &amp; I*fvc::interpolate(tr(dEpsP))))
+            + fvc::grad(dp) 
+        ); 
+        solverPerfDU = dUEqn.solve();
+
+        dU.relax(); //位移场放松
+
+        gradDU = fvc::grad(dU);//更新位移梯度
+
+        // update stress and plastic strains if plasticity option is switched on           
+        if (correct==&quot;yes&quot;)
+        {
+          # include &quot;correctPlasticity.H&quot; //修正塑性，此处采用的是摩尔库伦模型
+        } 
+
+        initialResidual = max(solverPerfP.initialResidual(),solverPerfDU.initialResidual());
+
+        U = U.oldTime()+dU;
+        U.correctBoundaryConditions();
+
+       if (iCorr % 10 == 1){ Info &lt;&lt; &quot;\tTime &quot; &lt;&lt; runTime.value()
+         &lt;&lt; &quot;, Corrector &quot; &lt;&lt; iCorr
+         &lt;&lt; &quot;, Solving for &quot; &lt;&lt; dU.name()
+         &lt;&lt; &quot;, residual = &quot; &lt;&lt; initialResidual &lt;&lt; endl;   
+          }          
+
+      } while (initialResidual &gt; convergenceTolerance &amp;&amp; iCorr &lt; nCorr); //收敛精度判断，满足，下一时间步，不满足，下一迭代步
+</code></pre><p>其中主要设计两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。</p>
+<p>…未完待续。</p>
+<p><em>By Shifeng</em></p>
+
+          
         
       
     </div>
