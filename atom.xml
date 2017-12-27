@@ -101,6 +101,7 @@
 </code></pre><p>其中主要涉及两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。孔压方程的求解部分相对简单易懂，位移增量方程的求解部分相对难懂，<br>需要结合论文熟悉其理论知识，包括为优化收敛性所做的左右laplacian项平衡处理，以及塑性修正部分的理论（难点在于找到合适的应力积分算法）。</p>
 <p>…未完待续…</p>
 <p><em>By Shifeng</em></p>
+<p>hello <a href="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/">http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/</a> bye</p>
 ]]></content>
     
     <summary type="html">
@@ -129,6 +130,7 @@
 <p>晚上回到寝室，已至11点，打开电脑听听歌，整理下文件夹，顺便刷刷朋友圈，看到同学晒自己超学制博士助学金申请，心里不仅多了一丝丝同感。</p>
 <p>想着自己也是今天准备了超学制博士助学金的申请，申请了一年，也不知到时能否顺利毕业。希望自己在接下来的这一年非学制内的时间里脚踏实地、耐住寂寞，尽自己的全力准备大论文吧。</p>
 <p>  20171225<br>  by <strong><em>Shifeng</em></strong></p>
+<p>hello <a href="http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/">http://yoursite.com/2017/12/25/DailyLife/20171225圣诞日/</a> bye</p>
 ]]></content>
     
     <summary type="html">
@@ -170,6 +172,7 @@
 <li><p>Philip Cardiff 编写的solid4Foam模块<br><a href="https://bitbucket.org/philip_cardiff/solids4foam" target="_blank" rel="external">https://bitbucket.org/philip_cardiff/solids4foam</a></p>
 </li>
 </ol>
+<p>hello <a href="http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/">http://yoursite.com/2017/12/24/OpenFOAM/OpenFOAM固体力学模块学习资料/</a> bye</p>
 ]]></content>
     
     <summary type="html">
@@ -181,9 +184,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
-    
       <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
+    
+      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     
   </entry>
   
@@ -200,6 +203,7 @@
 <h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><ol>
 <li>yade的优势比paticle多：计算快，开发团队强大</li>
 </ol>
+<p>hello <a href="http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/">http://yoursite.com/2017/05/15/DEM/离散元软件学习常用网址/</a> bye</p>
 ]]></content>
     
     <summary type="html">
@@ -229,6 +233,7 @@
 <h2 id="博客知乎："><a href="#博客知乎：" class="headerlink" title="博客知乎："></a>博客知乎：</h2><p>苏军伟博客：<a href="http://blog.sina.com.cn/openfoamresearch" target="_blank" rel="external">http://blog.sina.com.cn/openfoamresearch</a><br>王洋博客：<a href="http://blog.sina.com.cn/multiphyzks" target="_blank" rel="external">http://blog.sina.com.cn/multiphyzks</a><br>乐天树的博客：<a href="http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4a0a8b5d0100v2zv.html</a><br>知乎学习：<a href="https://www.zhihu.com/question/27185834?rf=27813194" target="_blank" rel="external">https://www.zhihu.com/question/27185834?rf=27813194</a><br>永无止境博客：<a href="http://openfoam.blog.sohu.com/entry/#entry" target="_blank" rel="external">http://openfoam.blog.sohu.com/entry/#entry</a><br>哈士奇爱喝酒的博客：<a href="http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html" target="_blank" rel="external">http://blog.sina.com.cn/s/articlelist_2696159261_8_1.html</a><br>邱小平的博客：<a href="http://xiaopingqiu.github.io/" target="_blank" rel="external">http://xiaopingqiu.github.io/</a></p>
 <h2 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h2><p>JASAK博士论文：<a href="https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf" target="_blank" rel="external">https://link.zhihu.com/?target=http%3A//powerlab.fsb.hr/ped/kturbo/OpenFOAM/docs/HrvojeJasakPhD.pdf</a><br>Chalmers大学openfoam博士课程：<a href="http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/" target="_blank" rel="external">http://www.tfd.chalmers.se/~hani/kurser/OS_CFD/</a><br>UNIGE Introductory OpenFOAM course-training:  <a href="http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html" target="_blank" rel="external">http://www.dicat.unige.it/guerrero/OpenFOAM_course2015b.html</a></p>
 <h2 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h2><p>101 Things to read when starting with OpenFOAM：<a href="http://www.sourceflux.de/blog/101-things-read-starting-openfoam/" target="_blank" rel="external">http://www.sourceflux.de/blog/101-things-read-starting-openfoam/</a><br>openfoam history: <a href="http://www.openfoam.com/download/openfoam-history.php" target="_blank" rel="external">http://www.openfoam.com/download/openfoam-history.php</a></p>
+<p>hello <a href="http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/">http://yoursite.com/2017/05/15/OpenFOAM/OpenFOAM常用网址/</a> bye</p>
 ]]></content>
     
     <summary type="html">
@@ -240,9 +245,9 @@
       <category term="OpenFOAM" scheme="http://yoursite.com/categories/OpenFOAM/"/>
     
     
-      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
-    
       <category term="OpenFOAM" scheme="http://yoursite.com/tags/OpenFOAM/"/>
+    
+      <category term="常用网址" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/"/>
     
   </entry>
   
