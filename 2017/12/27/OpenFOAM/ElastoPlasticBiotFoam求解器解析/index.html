@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/index.html">
 <meta property="og:site_name" content="Shi-Feng Lu">
 <meta property="og:description" content="ElastoPlasticBiotFoam求解器描述及代码分析">
-<meta property="og:updated_time" content="2017-12-27T06:36:55.113Z">
+<meta property="og:updated_time" content="2018-04-06T07:52:24.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElastoPlasticBiotFoam求解器解析">
 <meta name="twitter:description" content="ElastoPlasticBiotFoam求解器描述及代码分析">
@@ -501,7 +501,6 @@
 
       } while (initialResidual &gt; convergenceTolerance &amp;&amp; iCorr &lt; nCorr); //收敛精度判断，满足，下一时间步，不满足，下一迭代步
 </code></pre><p>其中主要涉及两个方程的求解，一是孔压方程的求解，二是位移增量方程的求解。孔压方程的求解部分相对简单易懂，位移增量方程的求解部分相对难懂，<br>需要结合论文熟悉其理论知识，包括为优化收敛性所做的左右laplacian项平衡处理，以及塑性修正部分的理论（难点在于找到合适的应力积分算法）。</p>
-<p>…未完待续…</p>
 <p><em>By Shifeng</em></p>
 <p>本文地址 <a href="http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/">http://yoursite.com/2017/12/27/OpenFOAM/ElastoPlasticBiotFoam求解器解析/</a> </p>
 
@@ -567,6 +566,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/06/OpenFOAM/foam-extend在windows-10下面的编译/" rel="prev" title="foam-extend在windows 10下面的编译">
+                foam-extend在windows 10下面的编译 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -661,7 +664,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -837,7 +840,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Total number of word: 1.3k </span>
+  <span class="post-count">Total number of word: 2.6k </span>
 </div>
         
 <div class="busuanzi-count">
