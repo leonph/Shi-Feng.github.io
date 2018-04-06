@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/04/06/OpenFOAM/foam-extend在windows-10下面的编译/index.html">
 <meta property="og:site_name" content="Shi-Feng Lu">
 <meta property="og:description" content="foam-extend-4.0在windows10下的编译介绍">
-<meta property="og:updated_time" content="2018-04-06T08:34:06.199Z">
+<meta property="og:updated_time" content="2018-04-06T08:45:22.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="foam-extend在windows下编译">
 <meta name="twitter:description" content="foam-extend-4.0在windows10下的编译介绍">
@@ -424,8 +424,8 @@
       
 
       
-        <h1 id="foam-extend-4-0在windows上运行有两种方法"><a href="#foam-extend-4-0在windows上运行有两种方法" class="headerlink" title="foam-extend-4.0在windows上运行有两种方法"></a>foam-extend-4.0在windows上运行有两种方法</h1><p><strong>1. 直接从官网下载已经编译好的windows版本</strong><br>按照foam-extend-4.0\doc\buildInstructions\Windows\READMEBinaryPackage.txt说明运行，该方法可以用自带求解器进行模拟。  </p>
-<p><strong>2. 下载源码在windows进行编译并运行</strong><br>按照foam-extend-4.0\doc\buildInstructions\Windows\README.txt说明运行，但是该说明过于简单，一般很难一次编译成功。  </p>
+        <h1 id="foam-extend-4-0在windows上运行"><a href="#foam-extend-4-0在windows上运行" class="headerlink" title="foam-extend-4.0在windows上运行"></a>foam-extend-4.0在windows上运行</h1><p><strong>方法1. 直接从官网下载已经编译好的windows版本</strong><br>按照foam-extend-4.0\doc\buildInstructions\Windows\READMEBinaryPackage.txt说明运行，该方法可以用自带求解器进行模拟。  </p>
+<p><strong>方法2. 下载源码在windows进行编译并运行</strong><br>按照foam-extend-4.0\doc\buildInstructions\Windows\README.txt说明运行，但是该说明过于简单，一般很难一次编译成功。  </p>
 <hr>
 <h1 id="foam-extend-4-0在windows10上编译流程"><a href="#foam-extend-4-0在windows10上编译流程" class="headerlink" title="foam-extend-4.0在windows10上编译流程"></a>foam-extend-4.0在windows10上编译流程</h1><p><strong>1. 下载安装必须的编译工具及环境</strong><br>需要的必须的工具包包括：7-Zip、wget, CMake, Git, MinGW-w64, ParaView, PExports, Java,<br>Subversion, Python。具体的下载地址如下：<br><a href="https://pan.baidu.com/s/1PQgfw0yfQ-dOQ-gykeMClg" target="_blank" rel="external">下载</a>   密码：htb4<br><strong>注意事项</strong><br>（1）所有安装包不要安装在C盘Program Files等存在空格的路径下，建议新建programs<br>文件夹，并安装在该文件夹下。<br>（2）MSYS需要在Mingw下二次安装，只安装”mingw-developer-toolkit” 和 “msys-base”包。  </p>
 <p><strong>2. 下载foam-extend-4.0安装包</strong><br>打开MingW的MSYS shell（MinGW\msys\1.0\msys.bat），下载foam-extend-4.0源文件，可以采用git工具：<br><code>git clone -b nextRelease http://git.code.sf.net/p/foam-extend/foam-extend-3.2 foam-extend-4.0</code>   </p>
@@ -513,7 +513,11 @@ All done!
 </code></pre><p>（2）第三方编译过程中有可能出现<code>dlfcn-win32-master：no such file or directory</code>等错误提示，请查看ThirdParty/mingwBuild/downloads文件夹中dlfcn-win32-master.zip是否下载完整。如出现该文件大小为0，可以考虑手动下载替换，重新编译。<br><a href="https://github.com/dlfcn-win32/dlfcn-win32/archive/master.zip" target="_blank" rel="external">下载</a>    </p>
 <p>（3）foam-extend源码编译过程中的日志文件为foam-extend-4.0\Allwmake.log，出现<code>could not open file XXX.C for source file XXX.C</code>，请忽略。  </p>
 <h1 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h1><ol>
-<li><a href="https://www.cfd-online.com/Forums/openfoam-installation/157770-foam-windows-linux-mac.html" target="_blank" rel="external">https://www.cfd-online.com/Forums/openfoam-installation/157770-foam-windows-linux-mac.html</a>  </li>
+<li><a href="https://www.cfd-online.com/Forums/openfoam-installation-windows-mac/177171-foam-extend-3-2-compilation-windows.html" target="_blank" rel="external">foam-extend-3.2 compilation on windows</a>  </li>
+<li><a href="https://www.cfd-online.com/Forums/openfoam-installation/157770-foam-windows-linux-mac.html" target="_blank" rel="external">FOAM on Windows, Linux and Mac</a>  </li>
+<li><a href="https://www.cfd-online.com/Forums/openfoam-programming-development/165908-foam-extend-3-2-issue-compiling-new-libraries-windows.html" target="_blank" rel="external">foam-extend-3.2: issue compiling new libraries on Windows</a>  </li>
+<li><a href="https://sourceforge.net/projects/foam-extend/files/foam-extend-4.0/Windows/" target="_blank" rel="external">foam-extend-4.0 / Windows</a>  </li>
+<li><a href="https://www.openfoam.com/download/install-windows-10.php" target="_blank" rel="external">OpenFOAM®  Installation on Windows 10</a></li>
 </ol>
 <p><em>By Shifeng</em></p>
 <p>本文地址 <a href="http://yoursite.com/2018/04/06/OpenFOAM/foam-extend在windows-10下面的编译/">http://yoursite.com/2018/04/06/OpenFOAM/foam-extend在windows-10下面的编译/</a> </p>
@@ -800,7 +804,7 @@ All done!
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#foam-extend-4-0在windows上运行有两种方法"><span class="nav-number">1.</span> <span class="nav-text">foam-extend-4.0在windows上运行有两种方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#foam-extend-4-0在windows10上编译流程"><span class="nav-number">2.</span> <span class="nav-text">foam-extend-4.0在windows10上编译流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考网址"><span class="nav-number">3.</span> <span class="nav-text">参考网址</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#foam-extend-4-0在windows上运行"><span class="nav-number">1.</span> <span class="nav-text">foam-extend-4.0在windows上运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#foam-extend-4-0在windows10上编译流程"><span class="nav-number">2.</span> <span class="nav-text">foam-extend-4.0在windows10上编译流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考网址"><span class="nav-number">3.</span> <span class="nav-text">参考网址</span></a></li></ol></div>
             
 
           </div>
