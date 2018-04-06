@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2018-04-06T09:08:35.092Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/04/06/OpenFOAM/foam-extend%E5%9C%A8windows-10%E4%B8%8B%E9%9D%A2%E7%9A%84%E7%BC%96%E8%AF%91/</loc>
     
-    <lastmod>2018-04-06T08:45:22.316Z</lastmod>
+    <lastmod>2018-04-06T09:05:57.593Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2017/05/15/DEM/%E7%A6%BB%E6%95%A3%E5%85%83%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</loc>
     
     <lastmod>2017-05-14T16:34:03.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2017-05-14T15:19:07.114Z</lastmod>
     
   </url>
   
